@@ -1,0 +1,99 @@
+﻿@model IEnumerable<EquipmentIndexViewModel>
+
+@{
+    ViewData["Title"] = "Оборудование";
+}
+
+
+<div class="container" style="margin-top: 10px;">
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>
+                Оборудование
+            </h2>
+            <hr />
+        </div>
+    </div>
+
+    <div style="margin-top: 25px">
+        <div class="row" style="margin-bottom: 10px">
+            <div class="col-md-12" style="text-align: right">
+                <button onclick="location.href='#'" type="button" class="btn btn-primary" style="background-color: #0067a5">Добавить</button>
+            </div>
+        </div>
+
+
+        <table id="tbl" class="table table-striped table-bordered">
+
+            <thead>
+                <tr>
+                    <th style="text-align: center;  vertical-align: middle">ИД</th>
+                    <th style="text-align: center; vertical-align: middle">S</th>
+                    <th style="vertical-align: middle">Наименование</th>
+                    <th style="vertical-align: middle">Зав. №</th>
+                    <th style="text-align: center;  vertical-align: middle">Свидетельство о метрологической поверка</th>
+                    <th style="text-align: center;  vertical-align: middle">Срок действия</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var equipment in Model)
+                {
+                    <tr>
+                        <td>@equipment.Id</td>
+                        <td>@equipment.Status</td>
+                        <td>@equipment.Name</td>
+                        <td>@equipment.Number</td>
+                        <td>@equipment.Muster</td>
+                        <td>@equipment.ExpirationDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tbl').DataTable({
+
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Russian.json"
+                },
+
+                "columns": [                    
+                    { "data": "id", "searchable": false },
+                    { "data": "status" },
+                    { "data": "name" },
+                    { "data": "number" },
+                    { "data": "muster" },
+                    { "data": "expirationDate" }                    
+                ],
+
+                "columnDefs": [
+                    {
+                        targets: 5, "width": "5%", "className": "dt-body-center", render: function (data) {
+                            if (data != null) {
+                                moment.lang('ru');
+                                return moment().format('DD.MM.YYYY');
+                            } else {
+                                return "";
+                            }
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+}
+
+
+

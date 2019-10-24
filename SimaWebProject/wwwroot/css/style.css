@@ -1,0 +1,13 @@
+﻿.btn-primary {
+    color: #fff !important;
+    background-color: #0067a5;
+}
+
+.btn-secondary {
+    color: #007E33 !important;
+    background-color: #4169E1;
+}
+
+.page-item.active .page-link {
+    background-color: #0067a5;
+}

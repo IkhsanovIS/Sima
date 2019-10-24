@@ -7,6 +7,11 @@ namespace SimaWebProject.Models
 {
     public class Equipment
     {
+        public Equipment()
+        {
+            Musters = new HashSet<Muster>();
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Number { get; set; }
@@ -14,7 +19,12 @@ namespace SimaWebProject.Models
         public int? BranchId { get; set; }
         public Branch Branch { get; set; }
 
+        public int EquipmentStatusId { get; set; }
+        public EquipmentStatus EquipmentStatus { get; set; }
+
         public DateTime? DateOfManufacture { get; set; }
+
+        public ICollection<Muster> Musters { get; set; }
 
 
     }

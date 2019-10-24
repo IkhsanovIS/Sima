@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SimaWebProject.Models
 {
-    interface IEquipmentRepository
+    public interface IEquipmentRepository
     {
         IQueryable<Equipment> Equipments { get; }
     }

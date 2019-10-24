@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/left-nav-style.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <link href="~/css/style.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+</head>
+
+<body>
+
+    <input type="checkbox" id="nav-toggle" hidden>
+
+    <nav class="nav">
+
+        <label for="nav-toggle" class="nav-toggle" onclick></label>
+        <h2></h2>
+        <ul>
+            <li><a href="/Equipments/Index">Оборудование</a>
+        </ul>
+    </nav>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    @RenderSection("Scripts", false)
+
+</body>
+</html>

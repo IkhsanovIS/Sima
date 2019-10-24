@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using SimaWebProject.Models;
 
 namespace SimaWebProject
 {
@@ -15,6 +16,7 @@ namespace SimaWebProject
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IEquipmentRepository, FakeEquipmentRepository>();
             services.AddMvc();
         }
 
@@ -28,7 +30,14 @@ namespace SimaWebProject
 
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Equipment}/{action=Index}/{id?}");
+            });
         }
     }
 }
