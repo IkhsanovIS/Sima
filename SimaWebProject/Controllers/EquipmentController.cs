@@ -5,9 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using SimaWebProject.Models;
 using SimaWebProject.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SimaWebProject.Controllers
-{
+{  
     public class EquipmentController : Controller
     {
         private IEquipmentRepository repository;
@@ -47,5 +48,15 @@ namespace SimaWebProject.Controllers
             return View(viewModels);
         
         }
+
+        public ViewResult Create()
+        {
+            ViewData["BranchId"] = new SelectList(repository., "Id", "Name");
+            ViewData["EquipmentStatusId"] = new SelectList(repository.EquipmentStatuses, "Id", "Name");
+            return View();
+
+        }
+
+
     }
 }

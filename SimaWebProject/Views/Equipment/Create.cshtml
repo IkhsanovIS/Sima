@@ -1,0 +1,47 @@
+﻿@model Equipment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h3>Оборудование</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Number" class="control-label"></label>
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Branch" class="control-label"></label>
+                <select asp-for="BranchId" class="form-control" asp-items="ViewBag.BranchId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfManufacture" class="control-label"></label>
+                <input asp-for="DateOfManufacture" class="form-control" />
+                <span asp-validation-for="DateOfManufacture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentStatus" class="control-label"></label>
+                <select asp-for="EquipmentStatusId" class="form-control" asp-items="ViewBag.EquipmentStatusId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" id="addBtn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад к списку</a>
+</div>
+

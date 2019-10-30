@@ -17,9 +17,9 @@ namespace SimaWebProject.Models
 
             new Equipment {Name = "Толщиномер", Number = "еук784", BranchId = 1, DateOfManufacture = DateTime.Today,
                                 EquipmentStatus = new EquipmentStatus{Name = "Исправен", Status = "ИИ"},
-                Musters = new List<Muster>{ new Muster { Number = "num001", DateOfExpiration = DateTime.Today},
-                                            new Muster { Number = "num002", DateOfExpiration = DateTime.Today},
-                                            new Muster { Number = "num003", DateOfExpiration = DateTime.Today } } },
+                Musters = new List<Muster>{ new Muster { Number = "num002", DateOfExpiration = DateTime.Today},
+                                            new Muster { Number = "num003", DateOfExpiration = DateTime.Today},
+                                            new Muster { Number = "num004", DateOfExpiration = DateTime.Today } } },
 
             new Equipment {Name = "УШС", Number = "фыу588", BranchId = 1, DateOfManufacture = DateTime.Today,
                                 EquipmentStatus = new EquipmentStatus{Name = "Исправен", Status = "ИИ"},
